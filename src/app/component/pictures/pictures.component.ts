@@ -10,7 +10,7 @@ import { Picture } from '../../models/picture';
 export class PicturesComponent implements OnInit {
 
   private pictures: Picture[];
-  constructor(private postservice: PicturesService) { }
+  constructor(private picturesService: PicturesService) { }
 
   ngOnInit() {
 
@@ -64,7 +64,7 @@ export class PicturesComponent implements OnInit {
   }
 
   public Remove_Picture() {
-    this.postservice.getREMOVE_Picture().subscribe(() => {
+    this.picturesService.getREMOVE_Picture().subscribe(() => {
       this.pictures.splice(0, this.pictures.length);
     });
   }

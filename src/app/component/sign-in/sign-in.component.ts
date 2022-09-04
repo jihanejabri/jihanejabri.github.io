@@ -29,11 +29,7 @@ export class SignInComponent implements OnInit {
         if (this.authService.isLoggedIn()) {
           this.router.navigate(['/pictures']);
         }
-        // get return url from route parameters or default to '/'
-      //  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
-
-    // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
 
     onSubmit() {
@@ -49,6 +45,6 @@ export class SignInComponent implements OnInit {
             alert(err.message);
           }
         );
-  }
-}
+      }
+    }
 }
