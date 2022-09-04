@@ -1,0 +1,14 @@
+.menu-action {
+    list-style: none;
+    display: flex;
+    flex-direction: row-reverse;
+}
+li {
+    padding-right: 4rem;
+}
+a {
+    color: white
+}
+.mat-drawer-content {
+     overflow: hidden;
+}

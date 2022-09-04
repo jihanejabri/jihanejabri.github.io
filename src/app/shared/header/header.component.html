@@ -1,0 +1,22 @@
+<mat-sidenav-container>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" >
+       <div>
+         <h1> WebSite Angular</h1>
+       </div>
+       <div style="margin-left: auto;">
+          <ul class="menu-action">
+              <li>
+                <a *ngIf="connexion === 'Login'" routerLink="/signIn">Login </a>
+              </li>
+              <li>
+                  <a *ngIf="connexion === 'Logout'" (click)="logout()">Logout </a>
+                </li>
+              <li>
+                <a routerLink="/"><span>Home</span></a>
+              </li>
+          </ul>
+       </div>
+      </mat-toolbar>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
