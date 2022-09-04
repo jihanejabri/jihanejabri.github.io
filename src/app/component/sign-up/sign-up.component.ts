@@ -30,18 +30,19 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
 
   onSubmit() {
       this.submitted = true;
-      // stop here if form is invalid
+
       if (this.form.invalid) {
           return;
       }
       this.loading = true;
+      this.router.navigate(['/signIn']);
+      //TODO: complete signUp service
       this.authService.signUp(this.form.value).pipe(first()).subscribe((user: any) => {
-       //TODO: complete signUp service
+       //TODO
         this.router.navigate(['/signIn']);
       });
   }
