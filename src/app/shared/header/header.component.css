@@ -4,7 +4,7 @@
     flex-direction: row-reverse;
 }
 li {
-    padding-right: 4rem;
+    padding-right: 1rem;
 }
 a {
     color: white

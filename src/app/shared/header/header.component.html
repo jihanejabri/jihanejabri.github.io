@@ -7,11 +7,14 @@
        <div style="margin-left: auto;">
           <ul class="menu-action">
               <li>
-                <a *ngIf="connexion === 'Login'" routerLink="/signIn">Login </a>
+                <a *ngIf="connexion === 'Login'" routerLink="/signIn">Login</a>
               </li>
               <li>
-                  <a *ngIf="connexion === 'Logout'" (click)="logout()">Logout </a>
+                  <a *ngIf="connexion === 'Logout'" routerLink="/pictures">Pictures</a>
                 </li>
+              <li>
+                  <a *ngIf="connexion === 'Logout'" (click)="logout()">Logout</a>
+              </li>
               <li>
                 <a routerLink="/"><span>Home</span></a>
               </li>
