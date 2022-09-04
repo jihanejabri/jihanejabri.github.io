@@ -1,1 +1,31 @@
-<p>pictures works!</p>
+        <div >
+        <mat-card class="empty">
+            <button mat-icon-button (click)="Add_Picture()">
+              <mat-icon>add</mat-icon>
+            </button>
+        </mat-card>
+      </div>
+      <div *ngIf="getPictures()">
+        <div *ngFor="let picture of getPictures(); let i = index">
+        <mat-card class="picture" >
+          <img mat-card-xl-image [src]=picture.url class="picture-image">
+          <mat-card-title>
+            <div class="content">
+            {{picture.name}}
+            </div>
+          </mat-card-title>
+          <mat-card-actions>
+            <button mat-icon-button (click)="favorite_icon(i)">
+              <mat-icon [color]="picture.favourite==true?'primary':'none'">favorite</mat-icon>
+            </button>
+            <button mat-icon-button (click)="favorite_icon(i)">
+                    <mat-icon [routerLink]="['/picture/', picture.id]">details</mat-icon>
+                  </button>
+            <button mat-icon-button (click)="delete_icon(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      </div>
+      
