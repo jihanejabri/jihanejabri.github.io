@@ -17,7 +17,11 @@ export class DetailsPictureComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub = this.route.params.subscribe((params : any) => {
       this.id = +params.id;
-    })
+    });
+  }
+
+  getPicture(id: number) {
+   //TODO Add service getPicture by id
   }
 
   ngOnDestroy(): void {

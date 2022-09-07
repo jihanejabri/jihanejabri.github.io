@@ -25,20 +25,24 @@ export class SignInComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
         if (this.authService.isLoggedIn()) {
           this.router.navigate(['/pictures']);
         }
     }
-    get f() { return this.loginForm.controls; }
+
+    get f() { 
+      return this.loginForm.controls; 
+    }
 
     onSubmit() {
       this.submitted = true;
       if (this.loginForm.valid) {
         this.authService.signIn(this.loginForm.value).subscribe(
           (result: any) => {
-            window.location.reload();
-            this.router.navigate(['/pictures']);
+           let userName =(this.loginForm.controls['username'] as FormGroup).value;
+           sessionStorage.setItem('userName', userName);
+           window.location.reload();
+          this.router.navigate(['/pictures']);
           },
           (err: Error) => {
             this.submitted = false;

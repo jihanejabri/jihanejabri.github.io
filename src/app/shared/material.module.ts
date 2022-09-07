@@ -23,7 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule,
+       MatCardModule,
     MatInputModule,
     MatButtonModule,
     MatListModule,
