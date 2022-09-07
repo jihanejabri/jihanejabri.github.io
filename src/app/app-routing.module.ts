@@ -6,7 +6,7 @@ import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { HomePageComponent } from './component/home-page/home-page.component';
 import { AuthGuardService } from './shared/guard/auth-guard.service';
 import { PicturesComponent } from './component/pictures/pictures.component';
-import { DetailsPictureComponent } from './component/pictures/details-picture/details-picture.component';
+import { ShowDetailsComponent } from './component/pictures/show-details/show-details.component';
 const routes: Routes = [
 {
     path: 'signIn',
@@ -23,7 +23,7 @@ const routes: Routes = [
 },
 {
   path: 'picture/:id',
-  component: DetailsPictureComponent,
+  component: ShowDetailsComponent,
   canActivate: [AuthGuardService]
 },
 {

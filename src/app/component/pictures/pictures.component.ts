@@ -16,20 +16,20 @@ export class PicturesComponent implements OnInit {
     this.updateUserName();
     this.pictures =   [
       {name : 'NATURE TEST',
-        id : 1,
+        id : 0,
         url  : '../../../assets/img/nature.jpg',
         description: 'Description',
         favourite: false
       },
       {
-        id : 2,
+        id : 1,
         name : 'NATURE TEST 1',
         url  : '../../../assets/img/nature1.jpg',
         description: 'Description 1',
         favourite: false
       },
       {
-        id : 3,
+        id : 2,
         name : 'NATURE TEST 2',
         url  : '../../../assets/img/nature2.jpg',
         description: 'Description 2',
@@ -64,8 +64,6 @@ export class PicturesComponent implements OnInit {
         favourite: false
       }
     ];
-    this.Add_Picture();
-    this.Remove_Picture();
   }
 
   updateUserName(){
@@ -73,35 +71,39 @@ export class PicturesComponent implements OnInit {
   }
 
   public getPictures() {
+    this.picturesService.getAllPictures().subscribe((res: any) => {
+     // this.pictures = res;
+    });
     return this.pictures;
   }
 
-  public favorite_picture(i: any) {
-    if (this.pictures[i].favourite === false) {
-      this.pictures[i].favourite = true;
-    } else {
-      this.pictures[i].favourite = false;
+  public favorite_picture(picture: Picture) {
+    const index = this.pictures.indexOf(picture);
+    if (index > -1) {
+      if (this.pictures[index].favourite === false) {
+        this.pictures[index].favourite = true;
+      } else {
+        this.pictures[index].favourite = false;
+      }
     }
   }
-  public delete_picture(i: any) {
-    this.pictures.splice(i, 1);
+  public delete_picture(picture: Picture) {
+    const index = this.pictures.indexOf(picture);
+    if (index > - 1) {
+      this.pictures.splice(index, 1);
+    }
+    
   }
 
   public Add_Picture() {
     //TODO
     const data = {
-      id : 3,
+      id : 7,
       name : 'NATURE TEST ?',
       url  : '../../../assets/img/nature6.jpg',
       description: 'Description ?',
       favourite: false
     };
     this.pictures.push(data);
-  }
-
-  public Remove_Picture() {
-    this.picturesService.getREMOVE_Picture().subscribe(() => {
-      this.pictures.splice(0, this.pictures.length);
-    });
   }
 }

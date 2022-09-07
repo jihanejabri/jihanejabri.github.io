@@ -16,6 +16,7 @@ import { DetailsPictureComponent } from './component/pictures/details-picture/de
 
 import {AuthenticationService} from './services/authentication.service';
 import { PicturesService } from './services/pictures.service';
+import { ShowDetailsComponent } from './component/pictures/show-details/show-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PicturesService } from './services/pictures.service';
     SignUpComponent,
     HomePageComponent,
     PicturesComponent,
-    DetailsPictureComponent
+    DetailsPictureComponent,
+    ShowDetailsComponent
   ],
   imports: [
     BrowserModule,

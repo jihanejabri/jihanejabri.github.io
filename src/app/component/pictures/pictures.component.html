@@ -7,31 +7,13 @@
             </button>
         </mat-card>
       </div>
-      <div *ngIf="getPictures()">
-        <div *ngFor="let picture of getPictures(); let i = index">
-        <mat-card class="picture" >
-          <img mat-card-xl-image [src]=picture.url class="picture-image">
-          <mat-card-title>
-            <div class="content">
-            {{picture.name}}
-            </div>
-            <div class="content">
-                {{picture.description}}
-            </div>
-          </mat-card-title>
-          <mat-card-actions>
-            <button mat-icon-button (click)="favorite_picture(i)">
-              <mat-icon [color]="picture.favourite==true?'primary':'none'">favorite</mat-icon>
-            </button>
-            <button mat-icon-button>
-                    <mat-icon [routerLink]="['/picture/', picture.id]">details</mat-icon>
-                  </button>
-            <button mat-icon-button (click)="delete_picture(i)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
+      <div *ngIf="getPictures()" class="pictures">
+        <div class="bloc" *ngFor="let picture of getPictures()" 
+        [picture]="picture" 
+        (favorite)="favorite_picture(picture)"
+        (delete)="delete_picture(picture)"
+         app-details-picture>
+        </div>
     </div>
 <app-footer></app-footer>
 </div>

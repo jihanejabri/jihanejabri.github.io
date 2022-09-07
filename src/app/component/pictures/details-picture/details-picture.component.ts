@@ -1,30 +1,25 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Picture } from '../../../models/picture';
 
 @Component({
-  selector: 'app-details-picture',
+  selector: 'div[app-details-picture]',
   templateUrl: './details-picture.component.html',
   styleUrls: ['./details-picture.component.css']
 })
-export class DetailsPictureComponent implements OnInit, OnDestroy {
-  private sub: any;
-  private id: number | undefined;
+export class DetailsPictureComponent implements OnInit {
   @Input() picture: Picture | undefined;
-
-  constructor(private route: ActivatedRoute,) { }
+  @Output() delete = new EventEmitter<Picture>();
+  @Output() favorite = new EventEmitter<Picture>();
+  constructor() { }
 
   ngOnInit(): void {
-    this.sub = this.route.params.subscribe((params : any) => {
-      this.id = +params.id;
-    });
   }
 
-  getPicture(id: number) {
-   //TODO Add service getPicture by id
+  onDeletePicture() {
+    this.delete.emit(this.picture);
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
+  onFavoritePicture(){
+    this.favorite.emit(this.picture);
   }
 }

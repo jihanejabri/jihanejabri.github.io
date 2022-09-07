@@ -5,6 +5,7 @@
 }
 li {
     padding-right: 1rem;
+    cursor: pointer;
 }
 a {
     color: white

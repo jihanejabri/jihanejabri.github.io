@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {Subject, Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Picture } from '../models/picture';
 @Injectable({
   providedIn: 'root'
 })
 export class PicturesService {
 
-  private ADD_PICTURE:  Subject<any>;
-  private REMOVE_Picture:  Subject<any>;
-  constructor() {
-    this.ADD_PICTURE = new Subject();
-    this.REMOVE_Picture = new Subject();
+  constructor(private http: HttpClient) {
   }
 
-  public getADD_Picture(): Subject<any> {
-    return this.ADD_PICTURE;
+  public getAllPictures(): Observable<Picture[]> {
+    return this.http.get<Picture[]>(`http://localhost:4200/pictures`);
   }
 
-  public getREMOVE_Picture():  Subject<any>{
-    return this.REMOVE_Picture;
+  public addPicture(picture: Picture) {
+    return this.http.post(`http://localhost:4200/picture`, picture);
+  }
+
+  public deletePicture(id: number) {
+    return this.http.delete(`http://localhost:4200/picture/` + id);
+  }
+
+  public getPictureById(id: number) {
+    return this.http.get(`http://localhost:4200/picture/` + id);
+  } 
+
+  public updatePicture(picture: Picture) {
+    return this.http.put(`http://localhost:4200/picture/` + picture.id, picture);
   }
 }
