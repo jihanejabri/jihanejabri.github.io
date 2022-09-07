@@ -7,8 +7,8 @@
             </button>
         </mat-card>
       </div>
-      <div *ngIf="getPictures()" class="pictures">
-        <div class="bloc" *ngFor="let picture of getPictures()" 
+      <div *ngIf="pictures" class="pictures">
+        <div class="bloc" *ngFor="let picture of pictures" 
         [picture]="picture" 
         (favorite)="favorite_picture(picture)"
         (delete)="delete_picture(picture)"

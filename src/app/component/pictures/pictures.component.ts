@@ -8,7 +8,7 @@ import { Picture } from '../../models/picture';
 })
 export class PicturesComponent implements OnInit {
 
-  private pictures: Picture[];
+  pictures: Picture[];
   userName: string| null;
   constructor(private picturesService: PicturesService) { }
 
