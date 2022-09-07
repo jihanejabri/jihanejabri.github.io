@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Start JSON server
 
-RUN json-server --watch db.json
+json-server --watch pictures.json
 
 ## Code scaffolding
 
