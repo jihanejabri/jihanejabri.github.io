@@ -1,0 +1,53 @@
+{
+  "pictures" :   [
+       {
+         "id" : 0,
+     "name" : "NATURE TEST",
+         "url"  : "../../../assets/img/nature.jpg",
+         "description": "Description",
+         "favourite": false
+       },
+       {
+         "id" : 1,
+         "name" : "NATURE TEST 1",
+         "url"  : "../../../assets/img/nature1.jpg",
+         "description": "Description 1",
+         "favourite": false
+       },
+       {
+         "id" : 2,
+         "name" : "NATURE TEST 2",
+         "url"  : "../../../assets/img/nature2.jpg",
+         "description": "Description 2",
+         "favourite": true
+       },
+       {
+         "id" : 3,
+         "name" : "NATURE TEST 3",
+         "url"  : "../../../assets/img/nature8.jpg",
+         "description": "Description 3",
+         "favourite": false
+       },
+       {
+         "id" : 4,
+         "name" : "NATURE TEST 4",
+         "url"  : "../../../assets/img/nature5.jpg",
+         "description": "Description 4",
+         "favourite": false
+       },
+       {
+         "id" : 5,
+         "name" : "NATURE TEST 5",
+         "url"  : "../../../assets/img/nature6.jpg",
+         "description": "Description 5",
+         "favourite": false
+       },
+       {
+         "id" : 6,
+         "name" : "NATURE TEST 6",
+         "url"  : "../../../assets/img/nature7.jpg",
+         "description": "Description 6",
+         "favourite": false
+       }
+     ]
+   }

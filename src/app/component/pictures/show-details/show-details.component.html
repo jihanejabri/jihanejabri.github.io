@@ -1,11 +1,10 @@
 <div class="flex-wrapper">
-<mat-card>
-        <mat-card-title>webpage under construction</mat-card-title>
-    <!-- 
-         //TODO getPicture by id
+        <br /><br />
+        <mat-card-title>More Information</mat-card-title>
         <mat-card-content>
             <mat-card class="picture" >
                     <img mat-card-xl-image [src]=picture?.url class="picture-image">
+                    <br /><br />
                     <mat-card-title>
                       <div class="content">
                       {{picture?.name}}
@@ -16,8 +15,12 @@
                             {{picture?.description}}
                         </div>
                     </mat-card-title>
+                    <mat-card-actions>
+                            <button mat-icon-button (click)="onUpdatePicture()">
+                              <mat-icon>edit</mat-icon>
+                            </button>
+                          </mat-card-actions>
                   </mat-card>     
-    </mat-card-content> -->
-</mat-card>
+    </mat-card-content> 
 <app-footer></app-footer>
 </div>

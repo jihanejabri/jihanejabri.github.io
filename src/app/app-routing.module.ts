@@ -7,6 +7,8 @@ import { HomePageComponent } from './component/home-page/home-page.component';
 import { AuthGuardService } from './shared/guard/auth-guard.service';
 import { PicturesComponent } from './component/pictures/pictures.component';
 import { ShowDetailsComponent } from './component/pictures/show-details/show-details.component';
+import { AddPictureComponent } from './component/pictures/add-picture/add-picture.component';
+
 const routes: Routes = [
 {
     path: 'signIn',
@@ -24,6 +26,11 @@ const routes: Routes = [
 {
   path: 'picture/:id',
   component: ShowDetailsComponent,
+  canActivate: [AuthGuardService]
+},
+{
+  path: 'picture',
+  component: AddPictureComponent,
   canActivate: [AuthGuardService]
 },
 {

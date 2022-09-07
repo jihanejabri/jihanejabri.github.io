@@ -14,7 +14,7 @@ export class PicturesComponent implements OnInit {
 
   ngOnInit() {
     this.updateUserName();
-    this.pictures =   [
+/*     this.pictures =   [
       {name : 'NATURE TEST',
         id : 0,
         url  : '../../../assets/img/nature.jpg',
@@ -63,7 +63,8 @@ export class PicturesComponent implements OnInit {
         description: 'Description 6',
         favourite: false
       }
-    ];
+    ]; */
+    this.getPictures();
   }
 
   updateUserName(){
@@ -71,10 +72,9 @@ export class PicturesComponent implements OnInit {
   }
 
   public getPictures() {
-    this.picturesService.getAllPictures().subscribe((res: any) => {
-     // this.pictures = res;
+    return this.picturesService.getAllPictures().subscribe((res: any) => {
+      this.pictures = res;
     });
-    return this.pictures;
   }
 
   public favorite_picture(picture: Picture) {
@@ -87,23 +87,11 @@ export class PicturesComponent implements OnInit {
       }
     }
   }
+  
   public delete_picture(picture: Picture) {
     const index = this.pictures.indexOf(picture);
     if (index > - 1) {
       this.pictures.splice(index, 1);
-    }
-    
-  }
-
-  public Add_Picture() {
-    //TODO
-    const data = {
-      id : 7,
-      name : 'NATURE TEST ?',
-      url  : '../../../assets/img/nature6.jpg',
-      description: 'Description ?',
-      favourite: false
-    };
-    this.pictures.push(data);
+    } 
   }
 }

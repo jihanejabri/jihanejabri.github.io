@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Picture } from '../../../models/picture';
+import { PicturesService } from '../../../services/pictures.service';
 
 @Component({
   selector: 'app-show-details',
@@ -12,18 +13,25 @@ export class ShowDetailsComponent implements OnInit, OnDestroy {
   private id: number | undefined;
   @Input() picture: Picture | undefined;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private picturesService: PicturesService) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe((params : any) => {
       this.id = +params.id;
     });
+    this.getPicture(this.id)
   }
 
-  getPicture(id: number) {
-    //TODO Add service getPicture by id
+  getPicture(id: number | undefined) {
+    return this.picturesService.getPictureById(id).subscribe((res : Picture) => {
+      this.picture = res;
+    });
   }
 
+  onUpdatePicture() {
+    //TODO
+  }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }

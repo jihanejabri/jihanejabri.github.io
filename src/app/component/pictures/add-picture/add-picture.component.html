@@ -1,0 +1,29 @@
+<mat-card>
+        <mat-card-title>Add New Picture</mat-card-title>
+    <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p>
+        <mat-form-field>
+        <input type="text" matInput placeholder="name" formControlName="name">
+        </mat-form-field>
+        <mat-error *ngIf="submitted && f.name.errors">Name is required</mat-error>
+    </p>
+              
+    <p>
+        <mat-form-field>
+        <input type="text" matInput placeholder="url" formControlName="url">
+        </mat-form-field>
+        <mat-error *ngIf="submitted && f.url.errors">Url is required</mat-error>
+     </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="description" formControlName="description">
+        </mat-form-field>
+        <mat-error *ngIf="submitted && f.description.errors">Description is required</mat-error>
+      </p>
+      <div class="button">
+        <button type="submit" mat-button>Add</button>
+      </div>
+    </form>
+    </mat-card-content>
+    </mat-card>
