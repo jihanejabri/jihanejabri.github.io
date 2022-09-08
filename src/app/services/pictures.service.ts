@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Subject, Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Picture } from '../models/picture';
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class PicturesService {
     return this.http.get<Picture>(this.badeURI + `/pictures/` + id);
   } 
 
-  public updatePicture(picture: Picture) {
-    return this.http.put(this.badeURI + `/pictures/` + picture.id, picture);
+  public updatePicture(picture: Picture, id: number): Observable<Picture> {
+    return this.http.put<Picture>(this.badeURI + `/pictures/` + id, picture);
   }
 }

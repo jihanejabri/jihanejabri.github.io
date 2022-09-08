@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Picture } from '../../../models/picture';
 import { PicturesService } from '../../../services/pictures.service';
 
@@ -14,24 +14,31 @@ export class ShowDetailsComponent implements OnInit, OnDestroy {
   @Input() picture: Picture | undefined;
 
   constructor(private route: ActivatedRoute,
-              private picturesService: PicturesService) { }
+              private picturesService: PicturesService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe((params : any) => {
       this.id = +params.id;
     });
-    this.getPicture(this.id)
+    this.getPicture(this.id);
   }
 
-  getPicture(id: number | undefined) {
+  public getPicture(id: number | undefined) {
     return this.picturesService.getPictureById(id).subscribe((res : Picture) => {
       this.picture = res;
     });
   }
 
-  onUpdatePicture() {
+  public updatePicture(picture: Picture, id: number) {
     //TODO
+    const description = "test update picture service";
+    return this.picturesService.updatePicture(picture, id).subscribe((res : Picture) => {
+      this.picture = res;
+      this.picture.description = description;
+    });
   }
+  
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }

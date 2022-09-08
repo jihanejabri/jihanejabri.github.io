@@ -16,10 +16,10 @@
                         </div>
                     </mat-card-title>
                     <mat-card-actions>
-                            <button mat-icon-button (click)="onUpdatePicture()">
-                              <mat-icon>edit</mat-icon>
-                            </button>
-                          </mat-card-actions>
+                        <button mat-icon-button *ngIf="picture" (click)="updatePicture(picture, picture.id)">
+                        <mat-icon>edit</mat-icon>
+                        </button>
+                    </mat-card-actions>
                   </mat-card>     
     </mat-card-content> 
 <app-footer></app-footer>
