@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../services/authentication.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,6 +12,8 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class SignUpComponent implements OnInit {
   form: FormGroup;
+  user: User | undefined;
+
   loading = false;
   submitted = false;
 
@@ -40,9 +43,8 @@ export class SignUpComponent implements OnInit {
       }
       this.loading = true;
       this.router.navigate(['/signIn']);
-      //TODO: complete signUp service
-      this.authService.signUp(this.form.value).pipe(first()).subscribe((user: any) => {
-       //TODO
+      this.authService.signUp(this.form.value).subscribe((user: any) => {
+        this.user = user;
         this.router.navigate(['/signIn']);
       });
   }
