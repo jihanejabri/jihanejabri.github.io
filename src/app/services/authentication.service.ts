@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, throwError, Observable, of } from 'rxjs';
+import { throwError, Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
-import {User} from '../models/user';
+import { User } from '../models/user';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,14 +9,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
   badeURI = environment.apiUrl;
 
-  constructor(private router: Router,private http: HttpClient) {
-  this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') as string));
-  this.user = this.userSubject.asObservable();
-  }
+  constructor(private router: Router,private http: HttpClient) {}
 
   public signIn({ username, password }: any): Observable<any> {
     if (username === 'jihane@admin' && password === 'jihane123') {
