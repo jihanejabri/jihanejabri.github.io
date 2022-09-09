@@ -26,7 +26,9 @@ export class AddPictureComponent implements OnInit {
     });
   }
 
-  get f() { return this.form.controls; }
+  get f() { 
+    return this.form.controls; 
+  }
 
   onSubmit() {
     this.submitted = true;
@@ -38,12 +40,6 @@ export class AddPictureComponent implements OnInit {
     return this.picturesService.addPicture(this.form.value).subscribe((res: any) => {
       this.picture = res;
       this.router.navigate(['/pictures']);
-    });
-}
-
-  public Add_Picture() {
-    return this.picturesService.addPicture(this.form.value).subscribe((res: any) => {
-      this.picture = res;
     });
   }
 }
